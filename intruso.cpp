@@ -64,24 +64,17 @@ std::string Intruso::crack_senha(){
         deu_match = true;
 
         for(int i = 1; i < receive_vector.size(); i++){
-            if(receive_vector[0][0] != receive_vector[i][0] && receive_vector[0][0] != receive_vector[i][1]){
+            if(receive_vector[0][0] != receive_vector[i][0] && receive_vector[0][0] != receive_vector[i][1])
                 deu_match = false;
-            }
-            else if(receive_vector[0][0] == receive_vector[i][0] || receive_vector[0][0] == receive_vector[i][1]){
-                deu_match = true;
-            }
         }
 
         if(deu_match == true){
             decode += receive_vector[0][0];
         }else{
+            deu_match = true;
             for(int i = 1; i < receive_vector.size(); i++){
-                if(receive_vector[0][1] != receive_vector[i][0] && receive_vector[0][1] != receive_vector[i][1]){
+                if(receive_vector[0][1] != receive_vector[i][0] && receive_vector[0][1] != receive_vector[i][1])
                     deu_match = false;
-                }
-                if(receive_vector[0][1] == receive_vector[i][0] || receive_vector[0][1] == receive_vector[i][1]){
-                    deu_match = true;
-                }
             }
             if(deu_match == true){
                 decode += receive_vector[0][1];
